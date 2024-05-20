@@ -1,9 +1,6 @@
 package com.metropolitan.it355.IT355PZ.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +10,8 @@ import lombok.Setter;
 @Table(name = "korisnici")
 public class Korisnici {
     @Id
-    @Column(name = "KorisnikID", nullable = false)
+    @Column(name = "Korisnik_ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "Ime", length = 50)
@@ -22,13 +20,13 @@ public class Korisnici {
     @Column(name = "Prezime", length = 50)
     private String prezime;
 
-    @Column(name = "KorisnickoIme", length = 50)
+    @Column(name = "Korisnicko_Ime", length = 50)
     private String korisnickoIme;
 
     @Column(name = "Lozinka")
     private String lozinka;
 
-    @Column(name = "TipKorisnika", length = 20)
+    @Column(name = "Tip_Korisnika", length = 20)
     private String tipKorisnika;
 
     @Column(name = "Role", nullable = false)

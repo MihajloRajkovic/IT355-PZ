@@ -24,7 +24,7 @@ public class Artikli {
     @Column(name = "Cena", precision = 10, scale = 2)
     private BigDecimal cena;
 
-    @Column(name = "KolicinaNaStanju")
+    @Column(name = "Kolicina_Na_Stanju")
     private Integer kolicinaNaStanju;
 
 }

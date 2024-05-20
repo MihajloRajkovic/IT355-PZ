@@ -66,6 +66,5 @@ public class FinansijeServiceImpl implements FinansijeService {
     @Override
     public void delete(int id) {
         finansijeRepository.deleteById(id);
-        System.out.println("AAAA");
     }
 }
