@@ -21,22 +21,22 @@ public class ArtikliController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getKorisnik(@PathVariable Integer id) {
+    public ResponseEntity<?> getArtikal(@PathVariable Integer id) {
         return ResponseEntity.ok(artikliService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> addKorisnik(@RequestBody Artikli k) {
+    public ResponseEntity<?> addArtikal(@RequestBody Artikli k) {
         return ResponseEntity.ok(artikliService.add(k));
     }
 
     @PutMapping
-    public ResponseEntity<?> updateKorisnik(@RequestBody Artikli k) {
+    public ResponseEntity<?> updateArtikal(@RequestBody Artikli k) {
         return ResponseEntity.ok(artikliService.update(k));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteKorisnik(@PathVariable Integer id) {
+    public ResponseEntity<?> deleteArtikal(@PathVariable Integer id) {
         artikliService.delete(id);
         return ResponseEntity.ok().build();
     }

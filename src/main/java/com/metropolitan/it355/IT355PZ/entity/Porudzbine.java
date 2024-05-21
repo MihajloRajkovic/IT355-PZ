@@ -17,8 +17,8 @@ public class Porudzbine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "Stol")
-    private Integer stol;
+    @Column(name = "Sto")
+    private Integer sto;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "RadnikID")

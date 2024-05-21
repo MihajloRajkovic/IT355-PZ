@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 10:23 AM
+-- Generation Time: May 21, 2024 at 11:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `meni` (
                                       `MeniID` int(11) NOT NULL AUTO_INCREMENT,
     `Naziv` varchar(100) DEFAULT NULL,
     PRIMARY KEY (`MeniID`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+    ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `meni`
@@ -138,10 +138,10 @@ INSERT INTO `meni` (`MeniID`, `Naziv`) VALUES
 
 DROP TABLE IF EXISTS `menistavke`;
 CREATE TABLE IF NOT EXISTS `menistavke` (
-                                            `MeniStavkaID` int(11) NOT NULL,
+                                            `Meni_StavkaID` int(11) NOT NULL,
     `MeniID` int(11) DEFAULT NULL,
     `ArtikalID` int(11) DEFAULT NULL,
-    PRIMARY KEY (`MeniStavkaID`),
+    PRIMARY KEY (`Meni_StavkaID`),
     KEY `menistavke_ibfk_2` (`ArtikalID`),
     KEY `menistavke_ibfk_3` (`MeniID`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -150,12 +150,12 @@ CREATE TABLE IF NOT EXISTS `menistavke` (
 -- Dumping data for table `menistavke`
 --
 
-INSERT INTO `menistavke` (`MeniStavkaID`, `MeniID`, `ArtikalID`) VALUES
-                                                                     (1, 1, 1),
-                                                                     (2, 1, 2),
-                                                                     (3, 2, 3),
-                                                                     (4, 3, 4),
-                                                                     (5, 4, 5);
+INSERT INTO `menistavke` (`Meni_StavkaID`, `MeniID`, `ArtikalID`) VALUES
+                                                                      (1, 1, 1),
+                                                                      (2, 1, 2),
+                                                                      (3, 2, 3),
+                                                                      (4, 3, 4),
+                                                                      (5, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -165,11 +165,11 @@ INSERT INTO `menistavke` (`MeniStavkaID`, `MeniID`, `ArtikalID`) VALUES
 
 DROP TABLE IF EXISTS `narudzbenicastavke`;
 CREATE TABLE IF NOT EXISTS `narudzbenicastavke` (
-                                                    `NarudzbenicaStavkaID` int(11) NOT NULL,
+                                                    `Narudzbenica_StavkaID` int(11) NOT NULL,
     `NarudzbenicaID` int(11) DEFAULT NULL,
     `ArtikalID` int(11) DEFAULT NULL,
     `Kolicina` int(11) DEFAULT NULL,
-    PRIMARY KEY (`NarudzbenicaStavkaID`),
+    PRIMARY KEY (`Narudzbenica_StavkaID`),
     KEY `NarudzbenicaID` (`NarudzbenicaID`),
     KEY `narudzbenicastavke_ibfk_2` (`ArtikalID`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -178,12 +178,12 @@ CREATE TABLE IF NOT EXISTS `narudzbenicastavke` (
 -- Dumping data for table `narudzbenicastavke`
 --
 
-INSERT INTO `narudzbenicastavke` (`NarudzbenicaStavkaID`, `NarudzbenicaID`, `ArtikalID`, `Kolicina`) VALUES
-                                                                                                         (1, 1, 1, 2),
-                                                                                                         (2, 2, 2, 3),
-                                                                                                         (3, 3, 3, 1),
-                                                                                                         (4, 4, 4, 5),
-                                                                                                         (5, 5, 5, 2);
+INSERT INTO `narudzbenicastavke` (`Narudzbenica_StavkaID`, `NarudzbenicaID`, `ArtikalID`, `Kolicina`) VALUES
+                                                                                                          (1, 1, 1, 2),
+                                                                                                          (2, 2, 2, 3),
+                                                                                                          (3, 3, 3, 1),
+                                                                                                          (4, 4, 4, 5),
+                                                                                                          (5, 5, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,7 @@ INSERT INTO `narudzbenice` (`NarudzbenicaID`, `VlasnikID`, `Datum_Narudzbine`) V
 DROP TABLE IF EXISTS `porudzbine`;
 CREATE TABLE IF NOT EXISTS `porudzbine` (
                                             `PorudzbinaID` int(11) NOT NULL AUTO_INCREMENT,
-    `Stol` int(11) DEFAULT NULL,
+    `Sto` int(11) DEFAULT NULL,
     `RadnikID` int(11) DEFAULT NULL,
     `Vreme_Porudzbine` timestamp NOT NULL DEFAULT current_timestamp(),
     PRIMARY KEY (`PorudzbinaID`),
@@ -231,12 +231,12 @@ CREATE TABLE IF NOT EXISTS `porudzbine` (
 -- Dumping data for table `porudzbine`
 --
 
-INSERT INTO `porudzbine` (`PorudzbinaID`, `Stol`, `RadnikID`, `Vreme_Porudzbine`) VALUES
-                                                                                      (1, 1, 1, '2024-05-16 10:00:00'),
-                                                                                      (2, 2, 2, '2024-05-16 10:15:00'),
-                                                                                      (3, 3, 3, '2024-05-16 10:30:00'),
-                                                                                      (4, 4, 4, '2024-05-16 10:45:00'),
-                                                                                      (5, 5, 5, '2024-05-16 11:00:00');
+INSERT INTO `porudzbine` (`PorudzbinaID`, `Sto`, `RadnikID`, `Vreme_Porudzbine`) VALUES
+                                                                                     (1, 1, 1, '2024-05-16 10:00:00'),
+                                                                                     (2, 2, 2, '2024-05-16 10:15:00'),
+                                                                                     (3, 3, 3, '2024-05-16 10:30:00'),
+                                                                                     (4, 4, 4, '2024-05-16 10:45:00'),
+                                                                                     (5, 5, 5, '2024-05-16 11:00:00');
 
 -- --------------------------------------------------------
 
