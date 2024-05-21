@@ -3,12 +3,18 @@ package com.metropolitan.it355.IT355PZ.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "korisnici")
-public class Korisnici {
+public class Korisnici implements UserDetails {
     @Id
     @Column(name = "Korisnik_ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,4 +38,38 @@ public class Korisnici {
     @Column(name = "Role", nullable = false)
     private String role;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getPassword() {
+        return this.lozinka;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.korisnickoIme;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
