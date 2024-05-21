@@ -13,13 +13,14 @@ import java.math.BigDecimal;
 public class Stavkeporudzbine {
     @Id
     @Column(name = "StavkaID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PorudzbinaID")
     private Porudzbine porudzbinaID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ArtikalID")
     private Artikli artikalID;
 

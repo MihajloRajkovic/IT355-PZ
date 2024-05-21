@@ -13,13 +13,14 @@ import java.time.LocalDate;
 public class Narudzbenice {
     @Id
     @Column(name = "NarudzbenicaID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "VlasnikID")
     private Korisnici vlasnikID;
 
-    @Column(name = "DatumNarudzbine")
+    @Column(name = "Datum_Narudzbine")
     private LocalDate datumNarudzbine;
 
 }

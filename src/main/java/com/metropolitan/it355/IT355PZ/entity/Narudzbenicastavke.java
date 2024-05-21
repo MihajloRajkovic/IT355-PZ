@@ -10,14 +10,15 @@ import lombok.Setter;
 @Table(name = "narudzbenicastavke")
 public class Narudzbenicastavke {
     @Id
-    @Column(name = "NarudzbenicaStavkaID", nullable = false)
+    @Column(name = "Narudzbenica_StavkaID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "NarudzbenicaID")
     private Narudzbenice narudzbenicaID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ArtikalID")
     private Artikli artikalID;
 

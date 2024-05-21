@@ -14,17 +14,18 @@ import java.time.Instant;
 public class Porudzbine {
     @Id
     @Column(name = "PorudzbinaID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "Stol")
     private Integer stol;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "RadnikID")
     private Korisnici radnikID;
 
     @ColumnDefault("current_timestamp()")
-    @Column(name = "VremePorudzbine", nullable = false)
+    @Column(name = "Vreme_Porudzbine", nullable = false)
     private Instant vremePorudzbine;
 
 }
