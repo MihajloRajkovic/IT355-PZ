@@ -67,4 +67,9 @@ public class KorisniciServiceImpl implements KorisniciService {
     public void delete(int id) {
         korisniciRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Korisnici> getKorisniciByUsername(String username) {
+        return korisniciRepository.findByKorisnickoIme(username);
+    }
 }

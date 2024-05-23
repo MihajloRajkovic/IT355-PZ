@@ -38,4 +38,11 @@ public interface KorisniciService {
      * @param id
      */
     void delete(int id);
+
+    /**
+     * Metoda vraca korisnika po username
+     * @param username
+     * @return Korisnici
+     */
+    Optional<Korisnici> getKorisniciByUsername(String username);
 }
