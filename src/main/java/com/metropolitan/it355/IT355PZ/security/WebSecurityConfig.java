@@ -46,6 +46,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .requestMatchers(HttpMethod.GET , "/images/**").permitAll()
+
                         .requestMatchers("/error").permitAll()
                         //Logout
                         .requestMatchers(HttpMethod.POST , "/auth/logout").hasAnyAuthority("READ_ONLY","FULL_ACCESS")
@@ -53,7 +54,17 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.GET ,"/korisnici/**").hasAuthority("FULL_ACCESS")
                         //Artikli
                         .requestMatchers("/artikli/**").hasAnyAuthority("FULL_ACCESS" , "READ_ONLY")
+                        .requestMatchers(HttpMethod.GET , "/artikli/**").hasAnyAuthority("READ_ONLY" , "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST , "/artikli/**").hasAnyAuthority("FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT , "/artikli/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
+                        .requestMatchers(HttpMethod.DELETE , "/artikli/**").hasAnyAuthority("FULL_ACCESS")
+                        //Meni
+                        .requestMatchers(HttpMethod.GET, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
+                        .requestMatchers(HttpMethod.POST, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
+                        .requestMatchers(HttpMethod.PUT, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
+                        .requestMatchers(HttpMethod.DELETE, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
                         //Admin
+
                         .requestMatchers("/admin/**").hasAuthority("FULL_ACCESS")
                         .requestMatchers("/actuator/**").hasAuthority("FULL_ACCESS")
                         //.requestMatchers("/actuator/**").permitAll()
