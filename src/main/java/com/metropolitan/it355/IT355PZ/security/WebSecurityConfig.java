@@ -63,6 +63,16 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
                         .requestMatchers(HttpMethod.PUT, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
                         .requestMatchers(HttpMethod.DELETE, "/meni/**").hasAnyAuthority("FULL_ACCESS", "READ_ONLY")
+                        //Porudzbine
+                        .requestMatchers(HttpMethod.GET, "/porudzbine/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST, "/porudzbine/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT, "/porudzbine/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.DELETE, "/porudzbine/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        //Narudzbenice
+                        .requestMatchers(HttpMethod.GET, "/narudzbenice/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST, "/narudzbenice/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT, "/narudzbenice/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.DELETE, "/narudzbenice/**").hasAnyAuthority("FULL_ACCESS")
                         //Admin
 
                         .requestMatchers("/admin/**").hasAuthority("FULL_ACCESS")

@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.time.DateTimeException;
 import java.time.Instant;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -26,6 +28,6 @@ public class Porudzbine {
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "Vreme_Porudzbine", nullable = false)
-    private Instant vremePorudzbine;
+    private Date vremePorudzbine;
 
 }
