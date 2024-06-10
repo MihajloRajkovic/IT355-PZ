@@ -68,4 +68,9 @@ public class ArtikliServiceImpl implements ArtikliService {
     public void delete(int id) {
         artikliRepository.deleteById(id);
     }
+
+    @Override
+    public List<Artikli> getByMenuID(Integer menuID) {
+        return artikliRepository.getArtiklibyMenuID(menuID);
+    }
 }

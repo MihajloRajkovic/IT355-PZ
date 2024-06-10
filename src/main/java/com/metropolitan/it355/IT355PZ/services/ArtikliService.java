@@ -38,4 +38,6 @@ public interface ArtikliService {
      * @param id
      */
     void delete(int id);
+
+     List<Artikli> getByMenuID(Integer menuID);
 }

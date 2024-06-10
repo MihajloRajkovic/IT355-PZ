@@ -24,6 +24,10 @@ public class MeniStavkeController {
     public ResponseEntity<?> getMenistavke(@PathVariable Integer id) {
         return ResponseEntity.ok(menistavkeService.getById(id));
     }
+    @GetMapping("/meni/{id}")
+    public ResponseEntity<?> getArtikliByMenuID(@PathVariable Integer id) {
+        return ResponseEntity.ok(menistavkeService.getAllArtiklibyMeni(id));
+    }
 
     @PostMapping
     public ResponseEntity<?> addMenistavke(@RequestBody Menistavke f) {

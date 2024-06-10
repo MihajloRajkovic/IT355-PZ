@@ -4,6 +4,7 @@ import com.metropolitan.it355.IT355PZ.entity.Korisnici;
 import com.metropolitan.it355.IT355PZ.services.KorisniciService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 public class KorisniciController {
 
     final KorisniciService korisniciService;
+    final PasswordEncoder passwordEncoder;
 
     @GetMapping
     public ResponseEntity<List<Korisnici>> getKorisnici() {
@@ -27,11 +29,13 @@ public class KorisniciController {
 
     @PostMapping
     public ResponseEntity<?> addKorisnik(@RequestBody Korisnici k) {
+        k.setLozinka(passwordEncoder.encode(k.getLozinka()));
         return ResponseEntity.ok(korisniciService.add(k));
     }
 
     @PutMapping
     public ResponseEntity<?> updateKorisnik(@RequestBody Korisnici k) {
+        k.setLozinka(passwordEncoder.encode(k.getLozinka()));
         return ResponseEntity.ok(korisniciService.update(k));
     }
 

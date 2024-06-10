@@ -73,8 +73,22 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/narudzbenice/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
                         .requestMatchers(HttpMethod.PUT, "/narudzbenice/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
                         .requestMatchers(HttpMethod.DELETE, "/narudzbenice/**").hasAnyAuthority("FULL_ACCESS")
+                        //Finansije
+                        .requestMatchers(HttpMethod.GET, "/finansije/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST, "/finansije/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT, "/finansije/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.DELETE, "/finansije/**").hasAnyAuthority("FULL_ACCESS")
+                        //Korisnici
+                        .requestMatchers(HttpMethod.GET, "/korisnici/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST, "/korisnici/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT, "/korisnici/**").hasAnyAuthority( "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.DELETE, "/korisnici/**").hasAnyAuthority("FULL_ACCESS")
                         //Admin
-
+                        //MeniStavke
+                        .requestMatchers(HttpMethod.GET, "/menistavke/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.POST, "/menistavke/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.PUT, "/menistavke/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
+                        .requestMatchers(HttpMethod.DELETE, "/menistavke/**").hasAnyAuthority("READ_ONLY", "FULL_ACCESS")
                         .requestMatchers("/admin/**").hasAuthority("FULL_ACCESS")
                         .requestMatchers("/actuator/**").hasAuthority("FULL_ACCESS")
                         //.requestMatchers("/actuator/**").permitAll()

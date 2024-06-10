@@ -25,6 +25,11 @@ public class ArtikliController {
         return ResponseEntity.ok(artikliService.getById(id));
     }
 
+    @GetMapping("/meni/{id}")
+    public ResponseEntity<?> getArtikalByMenuID(@PathVariable Integer id) {
+        return ResponseEntity.ok(artikliService.getByMenuID(id));
+    }
+
     @PostMapping
     public ResponseEntity<?> addArtikal(@RequestBody Artikli k) {
         return ResponseEntity.ok(artikliService.add(k));

@@ -1,5 +1,6 @@
 package com.metropolitan.it355.IT355PZ.services.impl;
 
+import com.metropolitan.it355.IT355PZ.entity.Artikli;
 import com.metropolitan.it355.IT355PZ.entity.Menistavke;
 import com.metropolitan.it355.IT355PZ.repository.MenistavkeRepository;
 import com.metropolitan.it355.IT355PZ.services.MenistavkeService;
@@ -66,5 +67,10 @@ public class MenistavkeServiceImpl implements MenistavkeService {
     @Override
     public void delete(int id) {
         menistavkeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<?> getAllArtiklibyMeni(Integer meniID) {
+      return menistavkeRepository.findAllByMeniID(meniID);
     }
 }

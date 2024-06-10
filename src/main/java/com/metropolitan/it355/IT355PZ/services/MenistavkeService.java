@@ -1,5 +1,6 @@
 package com.metropolitan.it355.IT355PZ.services;
 
+import com.metropolitan.it355.IT355PZ.entity.Artikli;
 import com.metropolitan.it355.IT355PZ.entity.Menistavke;
 
 import java.util.List;
@@ -38,4 +39,11 @@ public interface MenistavkeService {
      * @param id
      */
     void delete(int id);
+
+    /**
+     * Vraca sve artikle za meni
+     * @param meniID
+     * @return List<Artikli>
+     */
+    List<?> getAllArtiklibyMeni(Integer meniID);
 }
